@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS Practice Kit</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <style>
+        .task-card { display: none; }
+        .task-card.active { display: block; }
+    </style>
+</head>
+<body class="bg-gray-100 font-sans flex h-screen overflow-hidden">
+
+    <aside class="w-64 bg-slate-900 text-white flex flex-col shadow-xl">
+        <div class="p-6 border-b border-slate-700 text-center">
+            <h1 class="text-xl font-bold text-blue-400">JS Practice Kit</h1>
+        </div>
+        <nav class="flex-1 overflow-y-auto p-4 space-y-2 text-sm">
+            <button onclick="showTask('task1')" class="w-full text-left p-2 hover:bg-slate-800 rounded">1. Student Profile</button>
+            <button onclick="showTask('task2')" class="w-full text-left p-2 hover:bg-slate-800 rounded">2. Dark/Light Theme</button>
+            <button onclick="showTask('task3')" class="w-full text-left p-2 hover:bg-slate-800 rounded">3. Welcome Message</button>
+            <button onclick="showTask('task4')" class="w-full text-left p-2 hover:bg-slate-800 rounded">4. Value Counter</button>
+            <button onclick="showTask('task5')" class="w-full text-left p-2 hover:bg-slate-800 rounded">5. Random Color</button>
+            <button onclick="showTask('task6')" class="w-full text-left p-2 hover:bg-slate-800 rounded">6. Square & Cube</button>
+            <button onclick="showTask('task7')" class="w-full text-left p-2 hover:bg-slate-800 rounded">7. Product Filter</button>
+            <button onclick="showTask('task8')" class="w-full text-left p-2 hover:bg-slate-800 rounded">8. Email Validator</button>
+            <button onclick="showTask('task9')" class="w-full text-left p-2 hover:bg-slate-800 rounded">9. Random Quotes</button>
+            <button onclick="showTask('task10')" class="w-full text-left p-2 hover:bg-slate-800 rounded">10. Add Student Live</button>
+        </nav>
+    </aside>
+
+    <main class="flex-1 overflow-y-auto p-10">
+        
+        <div id="task1" class="task-card active">
+            <div class="max-w-sm mx-auto bg-white p-8 rounded-2xl shadow-xl border-t-4 border-blue-500 text-center">
+                <div class="w-20 h-20 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <span class="text-2xl font-bold text-blue-500">T</span>
+                </div>
+                <h2 id="t-name" class="text-2xl font-bold text-gray-800">Tania</h2>
+                <p class="text-gray-500 mb-6">CSE Student</p>
+                <button onclick="fun1()" class="bg-blue-500 text-white px-6 py-2 rounded-lg">Alert & Color</button>
+            </div>
+        </div>
+
+        <div id="task2" class="task-card">
+            <div id="theme-body" class="bg-white p-10 rounded-2xl shadow-lg text-center max-w-lg mx-auto">
+                <h2 class="text-2xl font-bold mb-4">Toggle Theme Mode</h2>
+                <button onclick="themeToggle()" class="px-8 py-3 rounded-full font-semibold border-2 border-current">Switch Appearance</button>
+            </div>
+        </div>
+
+        <div id="task3" class="task-card">
+            <div class="max-w-sm mx-auto text-center bg-white p-8 rounded-xl shadow-lg">
+                <input type="text" id="nn" placeholder="Enter Name" class="border-2 p-3 rounded mb-4 w-full outline-blue-500">
+                <button onclick="sub6()" class="bg-blue-500 text-white px-6 py-2 rounded-lg w-full font-bold">Say Welcome</button>
+                <p id="out" class="mt-4 text-xl font-bold text-blue-600"></p>
+            </div>
+        </div>
+
+        <div id="task4" class="task-card">
+            <div class="bg-white p-10 rounded-3xl shadow-2xl text-center max-w-sm mx-auto">
+                <p id="cc" class="text-7xl font-black mb-8 text-green-500">0</p>
+                <div class="flex justify-center gap-4">
+                    <button onclick="dec()" class="bg-red-100 text-red-600 w-14 h-14 rounded-full text-2xl font-bold">-</button>
+                    <button onclick="inc()" class="bg-green-100 text-green-600 w-14 h-14 rounded-full text-2xl font-bold">+</button>
+                </div>
+            </div>
+        </div>
+
+        <div id="task5" class="task-card">
+            <div class="text-center mt-20">
+                <button onclick="changeColor()" class="bg-purple-600 text-white px-10 py-4 rounded-full text-xl shadow-xl font-bold">Magic Background</button>
+            </div>
+        </div>
+
+        <div id="task6" class="task-card">
+            <div class="max-w-md mx-auto bg-white rounded-2xl shadow-xl overflow-hidden border">
+                <div class="bg-gradient-to-r from-purple-500 to-indigo-600 p-6 text-center text-white">
+                    <h2 class="text-2xl font-bold">Math Wizard</h2>
+                </div>
+                <div class="p-8">
+                    <input type="number" id="n" placeholder="Enter number" class="w-full border-2 rounded-xl p-3 mb-4 text-center font-bold">
+                    <button onclick="calculateMath()" class="w-full bg-indigo-600 text-white font-bold py-3 rounded-xl shadow-lg mb-6">Calculate</button>
+                    <div id="result-box" class="hidden grid grid-cols-2 gap-4">
+                        <div class="bg-purple-50 p-4 rounded-xl text-center border border-purple-100">
+                            <p class="text-xs text-purple-600 font-bold">Square</p>
+                            <p id="sq-out" class="text-2xl font-black text-purple-800">0</p>
+                        </div>
+                        <div class="bg-indigo-50 p-4 rounded-xl text-center border border-indigo-100">
+                            <p class="text-xs text-indigo-600 font-bold">Cube</p>
+                            <p id="cb-out" class="text-2xl font-black text-indigo-800">0</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="task7" class="task-card">
+            <div class="max-w-2xl mx-auto">
+                <div class="flex justify-center gap-4 mb-8">
+                    <button onclick="filterShow('all')" class="bg-gray-200 px-4 py-2 rounded-lg font-bold">All</button>
+                    <button onclick="filterShow('fruit')" class="bg-orange-100 text-orange-700 px-4 py-2 rounded-lg font-bold">Fruits</button>
+                    <button onclick="filterShow('veg')" class="bg-green-100 text-green-700 px-4 py-2 rounded-lg font-bold">Vegetables</button>
+                </div>
+                <div class="grid grid-cols-3 gap-4 text-center">
+                    <div class="item fruit bg-white p-4 rounded shadow border-l-4 border-orange-400 font-bold">Banana 🍌</div>
+                    <div class="item fruit bg-white p-4 rounded shadow border-l-4 border-orange-400 font-bold">Orange 🍊</div>
+                    <div class="item veg bg-white p-4 rounded shadow border-l-4 border-green-400 font-bold">Chili 🌶️</div>
+                    <div class="item veg bg-white p-4 rounded shadow border-l-4 border-green-400 font-bold">Tomato 🍅</div>
+                </div>
+            </div>
+        </div>
+
+        <div id="task8" class="task-card">
+            <div class="max-w-sm mx-auto text-center bg-white p-8 rounded-xl shadow-lg border">
+                <input type="text" id="email" placeholder="email@example.com" class="border-2 p-3 w-full rounded-lg mb-4">
+                <button onclick="validateEmail()" class="bg-green-600 text-white px-6 py-2 rounded-lg w-full font-bold">Verify Email</button>
+            </div>
+        </div>
+
+        <div id="task9" class="task-card">
+            <div class="max-w-lg mx-auto text-center bg-amber-50 p-10 rounded-2xl border-2 border-dashed border-amber-200 shadow-inner">
+                <p id="quote" class="text-2xl italic text-amber-900 mb-8">"Click for motivation"</p>
+                <button onclick="newQuote()" class="bg-amber-600 text-white px-8 py-3 rounded-full font-bold shadow-lg">Get Inspiration</button>
+            </div>
+        </div>
+
+        <div id="task10" class="task-card">
+            <div class="bg-white p-6 rounded-xl shadow-md mb-8 flex flex-wrap gap-4 items-end max-w-4xl mx-auto border">
+                <input type="text" id="stu-name" placeholder="Name" class="border p-2 rounded">
+                <input type="number" id="stu-id" placeholder="ID" class="border p-2 rounded">
+                <input type="text" id="stu-dept" placeholder="Dept" class="border p-2 rounded">
+                <button onclick="addStudent()" class="bg-indigo-600 text-white px-6 py-2 rounded font-bold">Add Student</button>
+            </div>
+            <div class="bg-white rounded-xl shadow-lg overflow-hidden max-w-4xl mx-auto border">
+                <table id="stu-tab" class="w-full text-left border-collapse">
+                    <thead class="bg-indigo-600 text-white">
+                        <tr><th class="p-4">Name</th><th class="p-4">ID</th><th class="p-4">Dept</th></tr>
+                    </thead>
+                    <tbody class="divide-y divide-gray-200 bg-white"></tbody>
+                </table>
+            </div>
+        </div>
+
+    </main>
+
+    <script>
+        function showTask(taskId) {
+            document.querySelectorAll('.task-card').forEach(card => card.classList.remove('active'));
+            document.getElementById(taskId).classList.add('active');
+        }
+
+        function fun1() {
+            alert("Hello, Student Profile Section!");
+            document.getElementById("t-name").style.color = "#10b981";
+        }
+
+        function themeToggle(){
+            let card = document.getElementById("theme-body");
+            if(card.classList.contains("bg-white")){
+                card.classList.replace("bg-white", "bg-gray-800");
+                card.style.color = "white";
+            } else {
+                card.classList.replace("bg-gray-800", "bg-white");
+                card.style.color = "black";
+            }
+        }
+
+        function sub6(){
+            let name = document.getElementById("nn").value;
+            if(!name) return alert("Please enter a name");
+            document.getElementById("out").innerHTML = "Welcome, " + name + "! 👋";
+        }
+
+        let count = 0;
+        function dis(){
+            let y = document.getElementById("cc");
+            y.innerText = count;
+            y.className = count < 0 ? "text-7xl font-black mb-8 text-red-500" : "text-7xl font-black mb-8 text-green-500";
+        }
+        function inc() { count++; dis(); }
+        function dec() { count--; dis(); }
+
+        function changeColor(){
+            let r = Math.floor(Math.random()*256), g = Math.floor(Math.random()*256), b = Math.floor(Math.random()*256);
+            document.body.style.backgroundColor = `rgb(${r},${g},${b})`;
+        }
+   
+        function calculateMath() {
+            let num = document.getElementById("n").value;
+            if(!num) return alert("Enter a number");
+            document.getElementById("result-box").classList.remove("hidden");
+            document.getElementById("sq-out").innerText = num * num;
+            document.getElementById("cb-out").innerText = num * num * num;
+        }
+     
+        function filterShow(type){
+            let items = document.getElementsByClassName("item");
+            for(let i=0; i<items.length; i++){
+                items[i].style.display = (type === "all" || items[i].classList.contains(type)) ? "block" : "none";
+            }
+        }
+
+        function validateEmail(){
+            let input = document.getElementById("email");
+            if(input.value.includes("@") && input.value.includes(".com")){
+                input.style.borderColor = "green";
+                alert("Valid ✅");
+            } else {
+                input.style.borderColor = "red";
+                alert("Invalid ❌");
+            }
+        }
+
+        function newQuote(){
+            let quotes = ["Keep Coding!", "Success is near", "Stay humble", "Work hard"];
+            document.getElementById("quote").innerHTML = `"${quotes[Math.floor(Math.random()*quotes.length)]}"`;
+        }
+
+        function addStudent(){
+            let name = document.getElementById("stu-name").value;
+            let id = document.getElementById("stu-id").value;
+            let dept = document.getElementById("stu-dept").value;
+            if(!name || !id || !dept) return alert("Fill all!");
+            let r = document.querySelector("#stu-tab tbody").insertRow();
+            r.innerHTML = `<td class="p-4">${name}</td><td class="p-4">${id}</td><td class="p-4">${dept}</td>`;
+            document.getElementById("stu-name").value = "";
+            document.getElementById("stu-id").value = "";
+            document.getElementById("stu-dept").value = "";
+        }
+    </script>
+</body>
+</html>
